@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    { "source": "/monsterlist", "destination": "/index.html" },
+    { "source": "/whitelist", "destination": "/index.html" },
+    { "source": "/collab", "destination": "/index.html" },
+    { "source": "/checker", "destination": "/index.html" }
+  ]
+}
