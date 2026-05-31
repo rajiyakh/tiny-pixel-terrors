@@ -885,19 +885,23 @@ window.addEventListener('load', function(){
 
 
 
-<script>
-window.addEventListener('load', function(){
-  var path = window.location.pathname.toLowerCase().replace(/\/+$/, '');
-  if(path === '/monsterlist' || path === '/whitelist'){
-    showPage('apply-page');
-  } else if(path === '/checker'){
-    showPage('checker-page');
-  } else if(path === '/collab'){
-    showPage('collab-page');
-  }
-});
-</script>
 
+
+
+<script>
+function handleHash(){
+  var hash = window.location.hash.toLowerCase();
+  if(hash === '#whitelist' || hash === '#monsterlist'){
+    showPage('apply-page');
+  } else if(hash === '#collab'){
+    showPage('collab-page');
+  } else if(hash === '#checker'){
+    showPage('checker-page');
+  }
+}
+window.addEventListener('load', handleHash);
+window.addEventListener('hashchange', handleHash);
+</script>
 
 </body>
 </html>
