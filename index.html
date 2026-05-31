@@ -186,6 +186,7 @@ p, div, span, a, label, input, textarea, select, button{font-weight:600}
 .footer-bar{font-weight:600}
 .collab-info span{font-weight:600}
 </style>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 </head>
 <body>
 
@@ -195,7 +196,7 @@ p, div, span, a, label, input, textarea, select, button{font-weight:600}
     <div class="nav-right" style="display:flex;align-items:center;gap:12px">
       <button onclick="showPage('about-page')" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(0,255,204,0.1);border:1px solid #00ffcc55;border-radius:6px;color:#00ffcc;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;font-family:'Rajdhani',sans-serif">About</button>
       <a href="https://x.com/TinyPxlTerrors" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:linear-gradient(135deg,#ff4400,#ff9900);border:none;border-radius:6px;color:#fff;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;box-shadow:0 2px 12px rgba(255,100,0,0.35);transition:all 0.2s"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.261 5.649 5.903-5.649zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Follow</a>
-      <span onclick="goToChecker()" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:linear-gradient(135deg,#1a0030,#3a0060);border:1px solid #a855f7;border-radius:6px;color:#cc88ff;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;box-shadow:0 2px 12px rgba(168,85,247,0.3);transition:all 0.2s">Monsterlist</span>
+      <span onclick="alert('Monsterlist Checker opening soon! Stay tuned on X.')" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:linear-gradient(135deg,#1a0030,#3a0060);border:1px solid #a855f7;border-radius:6px;color:#cc88ff;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;box-shadow:0 2px 12px rgba(168,85,247,0.3);transition:all 0.2s">Monsterlist 🔒</span>
     </div>
   </nav>
   <div class="hero">
@@ -325,6 +326,7 @@ p, div, span, a, label, input, textarea, select, button{font-weight:600}
           <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px"><div style="width:24px;height:24px;border-radius:50%;background:#ff6a00;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0">2</div><div id="step2-label" style="font-size:14px;color:#ffcc88;letter-spacing:1.5px;font-weight:700;text-shadow:0 0 8px rgba(255,150,50,0.4)">Enter Ethereum Address Below</div></div>
           <input class="wallet-input" id="wallet-input" placeholder="0x...">
         </div>
+          <div class="cf-turnstile" data-sitekey="0x4AAAAAADbZzE83RmzwxXYd" data-theme="dark" style="margin-bottom:12px"></div>
           <button class="submit-btn" id="submit-btn" onclick="submitForm()">SUBMIT</button>
 
           <div class="success-card" id="succ-msg">
@@ -447,6 +449,9 @@ function checkAllDone(){
 async function submitForm(){
   var w = document.getElementById('wallet-input').value.trim();
   if(!w){alert('Please enter your Ethereum wallet address.');return;}
+
+  var token = document.querySelector('[name="cf-turnstile-response"]');
+  if(!token || !token.value){alert('Please complete the verification first.');return;}
 
   document.getElementById('submit-btn').textContent = 'SUBMITTING...';
   document.getElementById('submit-btn').disabled = true;
@@ -581,12 +586,11 @@ function checkStatusByUsername(){
           <div class="step-num">1</div>
           <div class="step-label">Enter Your Wallet</div>
         </div>
-        <div style="text-align:center;padding:32px 16px;border:1px dashed #3a1050;border-radius:8px;background:rgba(0,0,0,0.3)">
-          <div style="font-family:'Bebas Neue',sans-serif;font-size:28px;color:#ff6a00;letter-spacing:6px;text-shadow:0 0 10px rgba(255,106,0,0.6)">OPEN SOON</div>
-          <div style="font-size:12px;color:#999;letter-spacing:3px;margin-top:8px;text-transform:uppercase">Monsterlist checker will be available at launch</div>
-          <button onclick="goToApply()" style="margin-top:20px;background:transparent;color:#ff6a00;border:1px solid #ff6a00;padding:10px 24px;font-family:Rajdhani,sans-serif;font-size:12px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:24px;transition:all 0.2s" class="get-ml-btn">Get Monsterlist</button>
+        <div>
+          <input class="wallet-input" id="checker-input" placeholder="0x..." type="text" style="width:100%;margin-bottom:12px">
+          <button id="check-btn" onclick="checkWallet()" style="width:100%;background:linear-gradient(135deg,#1a0030,#3a0060);color:#cc88ff;border:1px solid #a855f7;padding:12px;font-family:'Rajdhani',sans-serif;font-size:12px;letter-spacing:4px;text-transform:uppercase;cursor:pointer;border-radius:6px;font-weight:700">CHECK</button>
+          <div id="checker-result" style="display:none;margin-top:14px;padding:16px;border-radius:8px;font-size:13px;letter-spacing:1px;text-align:center"></div>
         </div>
-      </div>
     </div>
   </div>
   <div class="footer-bar">Welcome to Tiny Pixel Terrors</div>
