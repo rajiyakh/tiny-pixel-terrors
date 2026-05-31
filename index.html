@@ -7,13 +7,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tiny Pixel Terrors</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
-<style>
+<style>.page{display:none}.page.active{display:flex!important;flex-direction:column;min-height:100vh;visibility:visible!important;overflow:auto!important;height:auto!important}.page.active{display:flex;flex-direction:column;min-height:100vh}.page.active{display:flex;flex-direction:column;min-height:100vh}
+
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap');
 
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#001a1a;font-family:'Rajdhani',sans-serif;color:#f0e0ff;min-height:100vh;overflow-x:hidden}
-.page{display:none!important;height:0!important;overflow:hidden!important;visibility:hidden!important}
-.page.active{display:flex!important;height:auto!important;overflow:visible!important;visibility:visible!important;min-height:100vh;flex-direction:column}
+
+
 nav{display:flex;justify-content:space-between;align-items:center;padding:16px 48px;position:relative;z-index:10;flex-wrap:nowrap;gap:16px}
 .logo{color:#fff;font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:4px;color:#fff;text-shadow:0 0 10px rgba(255,60,0,0.8),0 0 20px rgba(255,60,0,0.4);}
 .logo span{color:#ff6a00; infinite}
@@ -194,7 +195,6 @@ p, div, span, a, label, input, textarea, select, button{font-weight:600}
   <nav>
     <a href="https://www.tinypixelterrors.xyz" style="text-decoration:none"><div class="logo">TINY<span>PIXEL</span>TERRORS</div></a>
     <div class="nav-right" style="display:flex;align-items:center;gap:12px">
-      <button onclick="showPage('about-page')" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(0,255,204,0.1);border:1px solid #00ffcc55;border-radius:6px;color:#00ffcc;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;font-family:'Rajdhani',sans-serif">About</button>
       <a href="https://x.com/TinyPxlTerrors" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:linear-gradient(135deg,#ff4400,#ff9900);border:none;border-radius:6px;color:#fff;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;box-shadow:0 2px 12px rgba(255,100,0,0.35);transition:all 0.2s"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.261 5.649 5.903-5.649zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Follow</a>
       <span onclick="alert('Monsterlist Checker opening soon! Stay tuned on X.')" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:linear-gradient(135deg,#1a0030,#3a0060);border:1px solid #a855f7;border-radius:6px;color:#cc88ff;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;box-shadow:0 2px 12px rgba(168,85,247,0.3);transition:all 0.2s">Monsterlist 🔒</span>
     </div>
@@ -898,75 +898,6 @@ window.addEventListener('load', function(){
 });
 </script>
 
-
-<div class="page" id="about-page">
-  <nav>
-    <a href="https://www.tinypixelterrors.xyz" style="text-decoration:none"><div class="logo">TINY<span>PIXEL</span>TERRORS</div></a>
-    <div class="nav-right" style="display:flex;align-items:center;gap:12px">
-      <button onclick="goHome()" style="display:inline-flex;align-items:center;gap:6px;padding:6px 14px;background:rgba(0,255,204,0.1);border:1px solid #00ffcc55;border-radius:6px;color:#00ffcc;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;font-family:'Rajdhani',sans-serif">← Back</button>
-      <a href="https://x.com/TinyPxlTerrors" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:linear-gradient(135deg,#ff4400,#ff9900);border:none;border-radius:6px;color:#fff;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.261 5.649 5.903-5.649zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Follow</a>
-      <span onclick="goToChecker()" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:linear-gradient(135deg,#1a0030,#3a0060);border:1px solid #a855f7;border-radius:6px;color:#cc88ff;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer">Monsterlist</span>
-    </div>
-  </nav>
-  <div style="max-width:700px;margin:0 auto;padding:48px 24px">
-    <div style="font-size:10px;letter-spacing:6px;color:#00ffcc;text-transform:uppercase;margin-bottom:16px">The World of Tiny Pixel Terrors</div>
-    <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,8vw,64px);line-height:1;letter-spacing:3px;margin-bottom:20px;color:#fff">FROM THE<br><span style="color:#ff6a00">VOID</span></div>
-    <div style="width:60px;height:2px;background:#ff6a00;margin-bottom:28px"></div>
-
-    <p style="font-family:'Cinzel',serif;font-size:13px;color:#ccc;line-height:2;margin-bottom:20px;font-style:italic">
-      In the beginning, there was nothing — just an infinite dark void of broken pixels and forgotten data. 
-      Then <span style="color:#00ffcc;font-style:normal;font-weight:700">they</span> crawled out.
-    </p>
-
-    <p style="font-family:'Cinzel',serif;font-size:13px;color:#ccc;line-height:2;margin-bottom:20px;font-style:italic">
-      <span style="color:#00ffcc;font-style:normal;font-weight:700">Tiny Pixel Terrors</span> is a collection of 333 cursed pixel monsters, 
-      each born from a different corner of the void. Every monster carries its own name, 
-      its own ability, and its own dark story. No two are the same.
-    </p>
-
-    <div style="border-left:3px solid #ff6a00;padding:14px 20px;background:rgba(255,106,0,0.05);border-radius:0 8px 8px 0;margin:24px 0">
-      <p style="font-family:'Cinzel',serif;font-size:14px;color:#ffcc88;font-style:italic;line-height:1.8">"The smallest creatures carry the darkest souls."</p>
-    </div>
-
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:24px 0">
-      <div style="background:#002222;border:1px solid #ff6a0033;border-radius:8px;padding:14px">
-        <div style="font-size:10px;letter-spacing:3px;color:#ff9944;text-transform:uppercase;margin-bottom:6px">Collection Size</div>
-        <div style="font-size:24px;font-weight:700;color:#fff;font-family:'Bebas Neue',sans-serif;letter-spacing:2px">333</div>
-      </div>
-      <div style="background:#002222;border:1px solid #ff6a0033;border-radius:8px;padding:14px">
-        <div style="font-size:10px;letter-spacing:3px;color:#ff9944;text-transform:uppercase;margin-bottom:6px">Blockchain</div>
-        <div style="font-size:24px;font-weight:700;color:#fff;font-family:'Bebas Neue',sans-serif;letter-spacing:2px">Ethereum</div>
-      </div>
-      <div style="background:#002222;border:1px solid #ff6a0033;border-radius:8px;padding:14px">
-        <div style="font-size:10px;letter-spacing:3px;color:#ff9944;text-transform:uppercase;margin-bottom:6px">Art Style</div>
-        <div style="font-size:24px;font-weight:700;color:#fff;font-family:'Bebas Neue',sans-serif;letter-spacing:2px">Pixel Art</div>
-      </div>
-      <div style="background:#002222;border:1px solid #ff6a0033;border-radius:8px;padding:14px">
-        <div style="font-size:10px;letter-spacing:3px;color:#ff9944;text-transform:uppercase;margin-bottom:6px">Creator</div>
-        <div style="font-size:24px;font-weight:700;color:#fff;font-family:'Bebas Neue',sans-serif;letter-spacing:2px">Solo Built</div>
-      </div>
-    </div>
-
-    <div style="font-size:10px;letter-spacing:6px;color:#00ffcc;text-transform:uppercase;margin-bottom:12px;margin-top:24px">Rarity Tiers</div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px">
-      <span style="padding:4px 12px;border-radius:20px;font-size:10px;letter-spacing:2px;font-weight:700;background:#ffd70022;color:#ffd700;border:1px solid #ffd70055">👑 Legendary</span>
-      <span style="padding:4px 12px;border-radius:20px;font-size:10px;letter-spacing:2px;font-weight:700;background:#a855f722;color:#a855f7;border:1px solid #a855f755">⚡ Epic</span>
-      <span style="padding:4px 12px;border-radius:20px;font-size:10px;letter-spacing:2px;font-weight:700;background:#3b82f622;color:#3b82f6;border:1px solid #3b82f655">💎 Rare</span>
-      <span style="padding:4px 12px;border-radius:20px;font-size:10px;letter-spacing:2px;font-weight:700;background:#6b728022;color:#9ca3af;border:1px solid #6b728055">🌑 Uncommon</span>
-      <span style="padding:4px 12px;border-radius:20px;font-size:10px;letter-spacing:2px;font-weight:700;background:#22222255;color:#888;border:1px solid #33333355">Common</span>
-    </div>
-
-    <p style="font-family:'Cinzel',serif;font-size:13px;color:#ccc;line-height:2;font-style:italic">
-      Each monster was <span style="color:#00ffcc;font-style:normal;font-weight:700">hand-crafted</span> — art, lore, traits, and abilities. 
-      Built solo, from scratch. No team. No shortcuts. Just pixels and purpose.
-    </p>
-
-    <div style="margin-top:32px">
-      <button onclick="goToApply()" style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:linear-gradient(135deg,#1a0030,#3a0060);border:1px solid #a855f7;border-radius:8px;color:#cc88ff;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;cursor:pointer;box-shadow:0 0 20px rgba(168,85,247,0.3)">👾 Apply for Monsterlist</button>
-    </div>
-  </div>
-  <div class="footer-bar">Welcome to Tiny Pixel Terrors</div>
-</div>
 
 </body>
 </html>
