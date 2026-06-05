@@ -187,7 +187,56 @@ p, div, span, a, label, input, textarea, select, button{font-weight:600}
 .footer-bar{font-weight:600}
 .collab-info span{font-weight:600}
 </style>
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer>
+function checkStatusHome(){
+  var username = document.getElementById('home-status-input').value.trim();
+  if(!username){ alert('Please enter your X username.'); return; }
+  if(!username.startsWith('@')) username = '@' + username;
+
+  var btn = document.querySelector('#home-status-input + button');
+  btn.textContent = 'Checking...';
+  btn.disabled = true;
+
+  var result = document.getElementById('home-status-result');
+  result.style.display = 'none';
+
+  fetch(SUPABASE_URL+'/rest/v1/monsterlist?twitter_username=eq.'+encodeURIComponent(username)+'&select=task_status,rejection_reason,twitter_username', {
+    headers:{
+      'apikey': SUPABASE_ANON_KEY,
+      'Authorization': 'Bearer '+SUPABASE_ANON_KEY
+    }
+  })
+  .then(function(r){ return r.json(); })
+  .then(function(data){
+    result.style.display = 'block';
+    if(data && data.length > 0){
+      var status = data[0].task_status;
+      if(status === 'verified'){
+        result.style.cssText = 'display:block;padding:10px 14px;border-radius:8px;font-size:12px;letter-spacing:1px;background:rgba(0,255,68,0.06);border:1px solid #00ff44;color:#00ff44';
+        result.innerHTML = '✓ VERIFIED — Your tasks are verified. Waiting for Raffle.';
+      } else if(status === 'rejected'){
+        result.style.cssText = 'display:block;padding:10px 14px;border-radius:8px;font-size:12px;letter-spacing:1px;background:rgba(100,0,0,0.1);border:1px solid #ff3300;color:#ff4444';
+        result.innerHTML = '✗ REJECTED — '+(data[0].rejection_reason||'Task verification failed');
+      } else {
+        result.style.cssText = 'display:block;padding:10px 14px;border-radius:8px;font-size:12px;letter-spacing:1px;background:rgba(255,106,0,0.05);border:1px solid #ff6a00;color:#ff9944';
+        result.innerHTML = '⏳ PENDING — Your tasks are under review.';
+      }
+    } else {
+      result.style.cssText = 'display:block;padding:10px 14px;border-radius:8px;font-size:12px;letter-spacing:1px;background:rgba(50,0,0,0.2);border:1px solid #3a1050;color:#ff4444';
+      result.innerHTML = '✗ NOT FOUND — This username has not applied.';
+    }
+    btn.textContent = 'Check Status';
+    btn.disabled = false;
+  })
+  .catch(function(){
+    result.style.cssText = 'display:block;padding:10px 14px;border-radius:8px;font-size:12px;letter-spacing:1px;background:rgba(100,0,0,0.2);border:1px solid #ff3300;color:#ff6644';
+    result.innerHTML = 'Connection error. Try again.';
+    btn.textContent = 'Check Status';
+    btn.disabled = false;
+  });
+}
+
+</script>
 </head>
 <body>
 
@@ -225,8 +274,15 @@ p, div, span, a, label, input, textarea, select, button{font-weight:600}
 </div>
       <div class="desc">The smallest creatures carry the darkest souls. Each one unique, each one cursed. 333 monsters unleashed on Ethereum.</div>
       <div style="display:flex;flex-direction:column;gap:12px;width:fit-content">
-  <button class="main-btn" onclick="goToApply()" style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:linear-gradient(135deg,#1a0030,#3a0060);border:1px solid #a855f7;border-radius:8px;color:#cc88ff;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;cursor:pointer;box-shadow:0 0 20px rgba(168,85,247,0.3);transition:all 0.2s">👾 Apply for Monsterlist</button>
+  <button onclick="alert('Monsterlist application is now closed. Stay tuned on X.')" style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:linear-gradient(135deg,#1a0030,#3a0060);border:1px solid #a855f755;border-radius:8px;color:#88669966;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;cursor:pointer;opacity:0.6">🔒 Apply for Monsterlist</button>
   <button onclick="alert('Collab applications open soon. Stay tuned on Twitter!')" style="display:none">Apply for Collab 🔒</button>
+  <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;width:fit-content">
+    <div style="display:flex;gap:8px;align-items:center">
+      <input id="home-status-input" placeholder="@yourusername" type="text" style="background:#001a1a;border:1px solid #a855f755;color:#f0e0ff;padding:8px 12px;font-family:'Rajdhani',sans-serif;font-size:13px;outline:none;border-radius:6px;width:200px">
+      <button onclick="checkStatusHome()" style="background:linear-gradient(135deg,#1a0030,#3a0060);color:#cc88ff;border:1px solid #a855f7;padding:8px 16px;font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:6px;font-weight:700">Check Status</button>
+    </div>
+    <div id="home-status-result" style="display:none;padding:10px 14px;border-radius:8px;font-size:12px;letter-spacing:1px"></div>
+  </div>
 </div>
     </div>
   </div>
@@ -531,7 +587,7 @@ function checkStatusByUsername(){
       if(status === 'verified'){
         result.style.background = 'rgba(0,255,68,0.06)';
         result.style.border = '1px solid #00ff44';
-        result.innerHTML = '<span style="color:#00ff44;font-weight:700">✓ VERIFIED</span> — Your spot is confirmed!';
+        result.innerHTML = '<span style="color:#00ff44;font-weight:700">✓ VERIFIED</span> — Your tasks are verified. Waiting for Raffle.';
       } else if(status === 'rejected'){
         result.style.background = 'rgba(100,0,0,0.1)';
         result.style.border = '1px solid #ff3300';
