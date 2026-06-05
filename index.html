@@ -193,7 +193,7 @@ function checkStatusHome(){
   if(!username){ alert('Please enter your X username.'); return; }
   if(!username.startsWith('@')) username = '@' + username;
 
-  var btn = document.querySelector('#home-status-input + button');
+  var btn = document.getElementById('home-status-btn');
   btn.textContent = 'Checking...';
   btn.disabled = true;
 
@@ -279,7 +279,7 @@ function checkStatusHome(){
   <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;width:fit-content">
     <div style="display:flex;gap:8px;align-items:center">
       <input id="home-status-input" placeholder="@yourusername" type="text" style="background:#001a1a;border:1px solid #a855f755;color:#f0e0ff;padding:8px 12px;font-family:'Rajdhani',sans-serif;font-size:13px;outline:none;border-radius:6px;width:200px">
-      <button onclick="checkStatusHome()" style="background:linear-gradient(135deg,#1a0030,#3a0060);color:#cc88ff;border:1px solid #a855f7;padding:8px 16px;font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:6px;font-weight:700">Check Status</button>
+      <button id="home-status-btn" onclick="checkStatusHome()" style="background:linear-gradient(135deg,#1a0030,#3a0060);color:#cc88ff;border:1px solid #a855f7;padding:8px 16px;font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:6px;font-weight:700">Check Status</button>
     </div>
     <div id="home-status-result" style="display:none;padding:10px 14px;border-radius:8px;font-size:12px;letter-spacing:1px"></div>
   </div>
