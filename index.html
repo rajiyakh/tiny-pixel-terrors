@@ -186,6 +186,11 @@ p, div, span, a, label, input, textarea, select, button{font-weight:600}
 .checker-sub{font-weight:600}
 .footer-bar{font-weight:600}
 .collab-info span{font-weight:600}
+
+
+
+.tb-x{background:linear-gradient(135deg,#ff4400,#ff9900);color:#fff;border:none}
+.tb-os{background:transparent;color:#555;border:1px solid #33333388}
 </style>
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer>  if(!username.startsWith('@')) username = '@' + username;
 
@@ -237,11 +242,10 @@ p, div, span, a, label, input, textarea, select, button{font-weight:600}
 <body>
 
 <div class="page active" id="home-page">
-  <nav>
+    <nav>
     <a href="https://www.tinypixelterrors.xyz" style="text-decoration:none"><div class="logo">TINY<span>PIXEL</span>TERRORS</div></a>
-    <div class="nav-right" style="display:flex;align-items:center;gap:12px">
-      <a href="https://x.com/TinyPxlTerrors" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:linear-gradient(135deg,#ff4400,#ff9900);border:none;border-radius:6px;color:#fff;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;box-shadow:0 2px 12px rgba(255,100,0,0.35);transition:all 0.2s"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.261 5.649 5.903-5.649zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Follow</a>
-      <span onclick="alert('Monsterlist Checker opening soon! Stay tuned on X.')" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:linear-gradient(135deg,#1a0030,#3a0060);border:1px solid #a855f7;border-radius:6px;color:#cc88ff;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer;box-shadow:0 2px 12px rgba(168,85,247,0.3);transition:all 0.2s">Monsterlist 🔒</span>
+    <div class="nav-right" style="display:flex;align-items:center">
+      <a href="https://x.com/TinyPxlTerrors" target="_blank" style="display:inline-flex;align-items:center;gap:6px;padding:8px 18px;background:linear-gradient(135deg,#ff4400,#ff9900);border:none;border-radius:6px;color:#fff;font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;text-decoration:none;box-shadow:0 2px 12px rgba(255,100,0,0.35)"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.74l7.73-8.835L1.254 2.25H8.08l4.261 5.649 5.903-5.649zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>Follow on X</a>
     </div>
   </nav>
   <div class="hero">
@@ -271,16 +275,19 @@ p, div, span, a, label, input, textarea, select, button{font-weight:600}
       <div class="desc">The smallest creatures carry the darkest souls. Each one unique, each one cursed. 333 monsters unleashed on Ethereum.</div>
       <div style="display:flex;flex-direction:column;gap:12px;width:fit-content">
   <button onclick="alert('Monsterlist application is now closed. Stay tuned on X.')" style="display:inline-flex;align-items:center;gap:10px;padding:14px 36px;background:linear-gradient(135deg,#1a0030,#3a0060);border:1px solid #a855f755;border-radius:8px;color:#88669966;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;cursor:pointer;opacity:0.6">🔒 Apply for Monsterlist</button>
+      <button onclick="goToChecker()" style="display:inline-flex;align-items:center;gap:8px;padding:12px 28px;background:linear-gradient(135deg,#ff4400,#ff9900);border:none;border-radius:8px;color:#fff;font-size:13px;letter-spacing:3px;text-transform:uppercase;font-weight:700;cursor:pointer;box-shadow:0 0 16px rgba(255,100,0,0.35)">🔍 Am I Chosen?</button>
+      <div style="margin-top:16px;background:rgba(0,0,0,0.3);border:1px solid #ff6a0044;border-radius:10px;padding:14px 20px;text-align:left">
+        <div style="font-size:10px;letter-spacing:4px;color:#ff9944;text-transform:uppercase;margin-bottom:8px">Mint Starts In</div>
+        <div id="countdown" style="font-family:'Bebas Neue',sans-serif;font-size:32px;color:#fff;letter-spacing:4px">--:--:--:--</div>
+        <div style="font-size:10px;letter-spacing:2px;color:#666;margin-top:4px">9 JUNE 2026 · 4PM UTC</div>
+        <div style="margin-top:12px">
+          <button onclick="alert('Monsters see you soon 👹')" style="display:inline-flex;align-items:center;gap:8px;padding:10px 20px;background:transparent;border:1px solid #33333388;border-radius:20px;color:#555;font-family:'Rajdhani',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;font-weight:700;cursor:pointer"><svg width="14" height="14" viewBox="0 0 90 90" fill="currentColor"><path d="M45 0C20.1 0 0 20.1 0 45s20.1 45 45 45 45-20.1 45-45S69.9 0 45 0zm-1.2 11.4l.3.5 13.4 20.8c.2.3 0 .7-.3.8l-13.4 5.4c-.3.1-.6-.1-.6-.4V11.8c0-.4.4-.6.6-.4zm-2.6 0c.2-.2.6 0 .6.4v26.7c0 .3-.3.5-.6.4L28.1 33.5c-.3-.1-.5-.5-.3-.8l13.4-20.8zm20.5 36.7L61.4 49l-16.2 9.4-16.2-9.4-.3-.5v-.5l.5-.3 14.8-6c.3-.1.6.1.6.4v9.9c0 .3.3.5.6.4l16-6.5c.2-.1.3-.1.5 0z"/></svg> OpenSea 🔒</button>
+        </div>
+      </div>
   <button onclick="alert('Collab applications open soon. Stay tuned on Twitter!')" style="display:none">Apply for Collab 🔒</button>
-  <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;width:fit-content">
-    <div style="display:flex;gap:8px;align-items:center">
-      <input id="home-status-input" placeholder="@yourusername" type="text" style="background:#001a1a;border:1px solid #a855f755;color:#f0e0ff;padding:8px 12px;font-family:'Rajdhani',sans-serif;font-size:13px;outline:none;border-radius:6px;width:200px">
-      <button id="home-status-btn" onclick="checkStatusHome()" style="background:linear-gradient(135deg,#1a0030,#3a0060);color:#cc88ff;border:1px solid #a855f7;padding:8px 16px;font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;cursor:pointer;border-radius:6px;font-weight:700">Check Status</button>
-    </div>
-    <div id="home-status-result" style="display:none;padding:10px 14px;border-radius:8px;font-size:12px;letter-spacing:1px"></div>
+  
   </div>
-</div>
-    </div>
+  </div>
   </div>
   <div class="footer-bar">Welcome to Tiny Pixel Terrors</div>
 </div>
@@ -663,6 +670,7 @@ function checkStatusByUsername(){
 <div class="page" id="checker-page">
   <nav>
     <a href="https://www.tinypixelterrors.xyz" style="text-decoration:none"><div class="logo">TINY<span>PIXEL</span>TERRORS</div></a>
+
   </nav>
   <div class="apply-page">
     <div class="apply-bg"></div>
@@ -672,9 +680,12 @@ function checkStatusByUsername(){
       
     </div>
     <div class="apply-right">
+      <div style="margin-bottom:12px">
+        <button onclick="goHome()" style="background:transparent;color:#00ff44;border:1px solid #00ff44;padding:6px 16px;font-family:'Rajdhani',sans-serif;font-size:11px;letter-spacing:3px;text-transform:uppercase;cursor:pointer;border-radius:20px">← Back</button>
+      </div>
       <div class="apply-card">
         
-<div class="apply-card-title">Wallet Checker</div>
+<div class="apply-card-title">Am I Chosen?</div>
         <div class="step-row">
           <div class="step-num">1</div>
           <div class="step-label">Enter Your Wallet</div>
@@ -698,74 +709,53 @@ async function checkWallet(){
   var result = document.getElementById('checker-result');
 
   if(!w || !w.startsWith('0x') || w.length !== 42){
-    result.style.display='block';
-    result.style.border='1px solid #ff3300';
-    result.style.background='rgba(100,0,0,0.2)';
-    result.innerHTML='<div style="color:#ff6644;font-size:13px;letter-spacing:2px">⚠️ INVALID WALLET ADDRESS<br><span style="font-size:11px;color:#886655">Please enter a valid EVM 0x wallet address</span></div>';
+    result.style.cssText='display:block;padding:14px;border:1px solid #ff3300;background:rgba(100,0,0,0.2);border-radius:8px;text-align:center;color:#ff6644;font-size:13px;letter-spacing:2px';
+    result.innerHTML='⚠️ INVALID WALLET ADDRESS';
     return;
   }
 
-  document.getElementById('check-btn').textContent = 'CHECKING...';
-  document.getElementById('check-btn').disabled = true;
+  document.getElementById('check-btn').textContent='CHECKING...';
+  document.getElementById('check-btn').disabled=true;
   result.style.display='none';
 
   try{
-    var res = await fetch(SUPABASE_URL+'/rest/v1/monsterlist?wallet_address=eq.'+encodeURIComponent(w)+'&select=wallet_address,twitter_username,task_status,rejection_reason', {
-      headers:{
-        'apikey': SUPABASE_ANON_KEY,
-        'Authorization': 'Bearer '+SUPABASE_ANON_KEY
-      }
+    // 1. Check guaranteed_wallets
+    var gRes = await fetch(SUPABASE_URL+'/rest/v1/guaranteed_wallets?wallet_address=eq.'+encodeURIComponent(w)+'&select=wallet_address',{
+      headers:{'apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY}
     });
-    var data = await res.json();
-
-    result.style.display='block';
-
-    if(data && data.length > 0){
-      var entry = data[0];
-      var status = entry.task_status;
-
-      if(status === 'verified'){
-        result.style.border='1px solid #00ff44';
-        result.style.background='rgba(0,255,68,0.06)';
-        result.innerHTML=
-          '<div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:#00ff44;letter-spacing:4px;text-shadow:0 0 12px #00ff44;margin-bottom:8px">✓ VERIFIED</div>'+
-          '<div style="font-size:12px;color:#ffcc88;letter-spacing:2px;margin-bottom:4px">@'+entry.twitter_username+'</div>'+
-          '<div style="font-size:11px;color:#999;letter-spacing:1px">Your Monsterlist spot is confirmed. Stay tuned for mint details.</div>';
-
-      } else if(status === 'rejected'){
-        result.style.border='1px solid #ff3300';
-        result.style.background='rgba(100,0,0,0.1)';
-        result.innerHTML=
-          '<div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:#ff4444;letter-spacing:4px;margin-bottom:8px">✗ REJECTED</div>'+
-          '<div style="font-size:12px;color:#ff6644;letter-spacing:1px;margin-bottom:4px">'+(entry.rejection_reason || 'Task verification failed')+'</div>'+
-          '<div style="font-size:11px;color:#999;letter-spacing:1px;margin-top:8px">Re-apply with valid tasks. <a href="#" onclick="goToApply()" style="color:#ff6a00">Apply again →</a></div>';
-
-      } else {
-        result.style.border='1px solid #ff6a00';
-        result.style.background='rgba(255,106,0,0.05)';
-        result.innerHTML=
-          '<div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:#ff9944;letter-spacing:4px;margin-bottom:8px;animation:statusBlink 2s infinite">⏳ PENDING</div>'+
-          '<div style="font-size:12px;color:#ffcc88;letter-spacing:1px;margin-bottom:4px">@'+entry.twitter_username+'</div>'+
-          '<div style="font-size:11px;color:#999;letter-spacing:1px">Your tasks are under review. Check back soon.</div>';
-      }
-
-    } else {
-      result.style.border='1px solid #3a1050';
-      result.style.background='rgba(50,0,0,0.2)';
-      result.innerHTML=
-        '<div style="font-family:Bebas Neue,sans-serif;font-size:20px;color:#ff4444;letter-spacing:3px;margin-bottom:8px">✗ NOT FOUND</div>'+
-        '<div style="font-size:11px;color:#ccc;letter-spacing:1px">This wallet has not been registered. <a href="#" onclick="goToApply()" style="color:#ff6a00">Apply now →</a></div>';
+    var gData = await gRes.json();
+    if(gData && gData.length > 0){
+      result.style.cssText='display:block;padding:16px;border:1px solid #ffd700;background:rgba(255,215,0,0.06);border-radius:8px;text-align:center';
+      result.innerHTML='<div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:#ffd700;letter-spacing:4px;margin-bottom:8px">🎉 CONGRATULATIONS!</div><div style="font-size:13px;color:#ffdd88;letter-spacing:1px">You won a Guaranteed spot on Tiny Pixel Terrors.<br>Mint on 9 June 4PM UTC.</div>';
+      document.getElementById('check-btn').textContent='CHECK';
+      document.getElementById('check-btn').disabled=false;
+      return;
     }
 
+    // 2. Check fcfs_wallets
+    var fRes = await fetch(SUPABASE_URL+'/rest/v1/fcfs_wallets?wallet_address=eq.'+encodeURIComponent(w)+'&select=wallet_address',{
+      headers:{'apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY}
+    });
+    var fData = await fRes.json();
+    if(fData && fData.length > 0){
+      result.style.cssText='display:block;padding:16px;border:1px solid #00aaff;background:rgba(0,170,255,0.06);border-radius:8px;text-align:center';
+      result.innerHTML='<div style="font-family:Bebas Neue,sans-serif;font-size:22px;color:#00aaff;letter-spacing:4px;margin-bottom:8px">🎯 FCFS ELIGIBLE!</div><div style="font-size:13px;color:#88ccff;letter-spacing:1px">You are eligible for FCFS mint.<br>Mint on 9 June 4PM UTC — First Come First Served.</div>';
+      document.getElementById('check-btn').textContent='CHECK';
+      document.getElementById('check-btn').disabled=false;
+      return;
+    }
+
+    // 3. Not found
+    result.style.cssText='display:block;padding:16px;border:1px solid #3a1050;background:rgba(50,0,0,0.2);border-radius:8px;text-align:center';
+    result.innerHTML='<div style="font-family:Bebas Neue,sans-serif;font-size:20px;color:#ff4444;letter-spacing:3px;margin-bottom:8px">✗ NOT FOUND</div><div style="font-size:12px;color:#888;letter-spacing:1px">This wallet is not registered.</div>';
+
   } catch(e){
-    result.style.display='block';
-    result.style.border='1px solid #ff3300';
-    result.style.background='rgba(100,0,0,0.2)';
-    result.innerHTML='<div style="color:#ff6644;font-size:13px;letter-spacing:2px">Connection error. Please try again.</div>';
+    result.style.cssText='display:block;padding:14px;border:1px solid #ff3300;background:rgba(100,0,0,0.2);border-radius:8px;text-align:center;color:#ff6644;font-size:13px';
+    result.innerHTML='Connection error. Please try again.';
   }
 
-  document.getElementById('check-btn').textContent = 'CHECK';
-  document.getElementById('check-btn').disabled = false;
+  document.getElementById('check-btn').textContent='CHECK';
+  document.getElementById('check-btn').disabled=false;
 }
 </script>
 
@@ -988,12 +978,56 @@ function handleHash(){
     showPage('apply-page');
   } else if(hash === '#collab'){
     showPage('collab-page');
-  } else if(hash === '#checker'){
+  } else if(hash === '#checker' || hash === '#walletcheck' || hash === '#check'){
     showPage('checker-page');
   }
 }
-window.addEventListener('load', handleHash);
+window.addEventListener('load', function(){
+  setTimeout(function(){
+    var path = window.location.pathname.toLowerCase().replace(/\/+$/, '');
+    if(path === '/checker' || path === '/check'){
+      showPage('checker-page');
+    } else if(path === '/monsterlist' || path === '/whitelist'){
+      showPage('apply-page');
+    } else if(path === '/collab'){
+      showPage('collab-page');
+    } else {
+      handleHash();
+    }
+  }, 100);
+});
 window.addEventListener('hashchange', handleHash);
+</script>
+
+
+<script>
+function updateCountdown(){
+  var mintTime = new Date('2026-06-09T16:00:00Z').getTime();
+  var now = new Date().getTime();
+  var diff = mintTime - now;
+
+  if(diff <= 0){
+    var el = document.getElementById('countdown');
+    if(el) el.innerHTML = '<span style="color:#00ff44">MINT IS LIVE!</span>';
+    return;
+  }
+
+  var days = Math.floor(diff / (1000*60*60*24));
+  var hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  var mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+  var secs = Math.floor((diff % (1000*60)) / 1000);
+
+  var el = document.getElementById('countdown');
+  if(el) el.innerHTML =
+    pad(days)+'<span style="color:#ff6a00;font-size:20px">D</span> '+
+    pad(hours)+'<span style="color:#ff6a00;font-size:20px">H</span> '+
+    pad(mins)+'<span style="color:#ff6a00;font-size:20px">M</span> '+
+    pad(secs)+'<span style="color:#ff6a00;font-size:20px">S</span>';
+}
+
+function pad(n){ return n < 10 ? '0'+n : n; }
+setInterval(updateCountdown, 1000);
+updateCountdown();
 </script>
 
 </body>
